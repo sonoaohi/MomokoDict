@@ -1,16 +1,27 @@
 # MomokoDict
 
-A new Flutter project.
+MomokoDict is a simple Japanese-English dictionary.
 
-## Getting Started
+It uses JMDict (via [jmdict-simplified](https://github.com/scriptin/jmdict-simplified)) as the data source and Flutter as the UI engine.
 
-This project is a starting point for a Flutter application.
+Currently MomokoDict supports the common entries version of the dictionary only. Using a full distribution may crash the program due to technical limitations of this project.
 
-A few resources to get you started if this is your first Flutter project:
+## Compiling
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+1. Download the source code of this project.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. Download and extract [`jmdict-eng-common-3.1.0.json`](https://github.com/scriptin/jmdict-simplified/releases/download/3.1.0%2B20201001122454/jmdict-eng-common-3.1.0+20201001122454.json.zip) (or any compatible later versions) into the `assets` folder.
+
+3. Compile.
+
+## Acknowledgment
+
+[Jim Breen's JMdict Japanese-English dictionary](https://www.edrdg.org/), by Jim Breen and the Electronic Dictionary Research and Development Group.
+
+[Jmdict-simplified](https://github.com/scriptin/jmdict-simplified), by Dmitry Shpika.
+
+## License
+
+The source code of this project is licensed under GPLv3.
+
+The JMDict dictionary used by this project has its own license, see [the Electronic Dictionary Research and Development Group's License Statement](https://www.edrdg.org/edrdg/licence.html).
