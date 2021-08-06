@@ -4,9 +4,9 @@ MomokoDict is a simple Japanese-English dictionary.
 
 It uses JMDict (via [jmdict-simplified](https://github.com/scriptin/jmdict-simplified)) as the data source and Flutter as the UI engine.
 
-Currently MomokoDict supports the common entries version of the dictionary only. Using a full distribution may crash the program due to technical limitations of this project.
+Currently MomokoDict supports the common entries version of the dictionary only. Using a full version may crash the program due to technical limitations of this project.
 
-## Compiling
+## Compilation
 
 1. Download the source code of this project.
 
