@@ -4,8 +4,17 @@ import 'jmdict_classes.dart';
 import 'load_asset.dart';
 import 'pages.dart';
 
-Future<JMDict> getParsedDict(Map<String, dynamic> unparsedDict) async {
-  return JMDict.fromJson(unparsedDict);
+enum DictType { JMDict, JMNeDict }
+
+Future<JMDict> getParsedDict(
+    Map<String, dynamic> unparsedDict, DictType dictType) async {
+  if (dictType == DictType.JMDict) {
+    return JMDict.fromJsonJMDict(unparsedDict);
+  }
+  if (dictType == DictType.JMNeDict) {
+    return JMDict.fromJsonJMNeDict(unparsedDict);
+  }
+  throw Error();
 }
 
 class DictDataAccess extends InheritedWidget {
@@ -47,9 +56,9 @@ class ThisApp extends StatelessWidget {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // JMDict jmDictData = await getParsedDict(await getDecodedDictJson('assets/jmdict-eng-3.1.0.json'));
-  // JMDict jmneDictData = await getParsedDict(await getDecodedDictJson('assets/jmnedict-3.1.0.json'));
-  //
+  // JMDict jmDictData = await getParsedDict(await getDecodedDictJson('assets/jmdict-eng-3.1.0.json'), DictType.JMDict);
+  // JMDict jmneDictData = await getParsedDict(await getDecodedDictJson('assets/jmnedict-3.1.0.json'), DictType.JMNeDict);
+
   // JMDictTagsDescription tagsData = {};
   // tagsData.addAll(jmDictData.tagsDescription);
   // tagsData.addAll(jmneDictData.tagsDescription);
@@ -57,7 +66,8 @@ void main() async {
   //     tagsDescription: tagsData);
 
   JMDict dictData = await getParsedDict(
-      await getDecodedDictJson('assets/jmdict-eng-common-3.1.0.json'));
+      await getDecodedDictJson('assets/jmdict-eng-common-3.1.0.json'),
+      DictType.JMDict);
 
   runApp(
     DictDataAccess(
